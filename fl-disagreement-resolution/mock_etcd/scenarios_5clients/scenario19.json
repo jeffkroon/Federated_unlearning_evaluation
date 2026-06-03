@@ -1,0 +1,245 @@
+{
+  "name": "Disagreement Scalability - 6 Clients Ring (6 Disagreements Each - Self-Exclusion)",
+  "description": "Disagreement scalability test with 6 clients where each client excludes all 6 clients including themselves (complete self-exclusion scenario). With submodel reuse, all clients share the same track since they have identical exclusion patterns.",
+  "num_clients": 5,
+  "expected_tracks": {
+    "track_c0_c1_c2_c3_c4_c5_no0_no1_no2_no3_no4_no0": "Shared track for all clients 0-5, excluding all clients (0, 1, 2, 3, 4, 5) - demonstrates submodel reuse efficiency",
+    "global": "Global track (reference only)"
+  },
+  "validation_rules": {
+    "round_1_rules": [
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "Client 0's track should exclude all clients including itself"
+      },
+      {
+        "type": "client_excludes",
+        "client": 1,
+        "excludes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "Client 1's track should exclude all clients including itself"
+      },
+      {
+        "type": "client_excludes",
+        "client": 2,
+        "excludes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "Client 2's track should exclude all clients including itself"
+      },
+      {
+        "type": "client_excludes",
+        "client": 3,
+        "excludes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "Client 3's track should exclude all clients including itself"
+      },
+      {
+        "type": "client_excludes",
+        "client": 4,
+        "excludes": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "Client 4's track should exclude all clients including itself"
+      }
+    ]
+  },
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_1": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_3": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ]
+  }
+}

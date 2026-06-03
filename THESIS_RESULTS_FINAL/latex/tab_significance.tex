@@ -1,0 +1,28 @@
+\begin{table}[H]
+\centering
+\caption{Pre-specified paired comparisons of utility (test accuracy) on the permanent
+scenarios, MNIST and Adult Income, over ten seeds (42--51). $\Delta$ is the mean paired
+difference (first strategy minus second); $t(9)$ and $p$ are the paired $t$-test; $p_W$ is the
+two-sided Wilcoxon signed-rank test; $d_z$ is Cohen's paired effect size. ``Dir.'' marks whether
+the difference holds in the same direction on all ten seeds. At $n{=}10$ the smallest attainable
+Wilcoxon value is $p_W \approx 0.002$.}
+\label{tab:significance}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{} l l c c c c c c @{}}
+\toprule
+\textbf{Data} & \textbf{Comparison} & $\boldsymbol{\Delta}$ & $\boldsymbol{t(9)}$ & $\boldsymbol{p}$ & $\boldsymbol{p_W}$ & $\boldsymbol{d_z}$ & \textbf{Dir.} \\
+\midrule
+Adult & Centralized vs.\ Federated exact RT & $+0.002$ & $0.47$ & $0.65$ & $0.56$ & $0.15$ & --- \\
+MNIST & Centralized vs.\ Federated exact RT & $-0.005$ & $-19.3$ & $<0.001$ & $0.002$ & $-6.1$ & yes \\
+Adult & SISA vs.\ Distillation & $+0.032$ & $6.4$ & $<0.001$ & $0.002$ & $2.0$ & yes \\
+Adult & Centralized exact RT vs.\ MF & $+0.073$ & $17.0$ & $<0.001$ & $0.002$ & $5.4$ & yes \\
+Adult & SISA vs.\ MF & $+0.072$ & $18.6$ & $<0.001$ & $0.002$ & $5.9$ & yes \\
+MNIST & Federated exact RT vs.\ MF & $+0.545$ & $24.1$ & $<0.001$ & $0.002$ & $7.6$ & yes \\
+\bottomrule
+\end{tabular}
+\\[3pt]
+{\footnotesize The two exact baselines are indistinguishable on Adult (the intended null);
+the MNIST exact-vs-federated difference is statistically significant but practically negligible
+($0.5\%$), illustrating the gap between statistical and practical significance.}
+\end{table}

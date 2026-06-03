@@ -1,0 +1,18 @@
+[project]
+name = "fl-disagreement-resolution"
+version = "0.1.0"
+description = "Proof of Concept for my thesis on \"Resolution Strategies for Client-Level Disagreement Scenarios in Federated Learning\""
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "brokenaxes>=0.6.2",
+    "matplotlib>=3.10.3",
+    "numpy>=2.2.5",
+    "pandas>=2.2.0",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
+    "torch>=2.7.0",
+    "torchvision>=0.22.0",
+    "xgboost>=2.0.0",
+    "questionary>=2.0.0",
+]

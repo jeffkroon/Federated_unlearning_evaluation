@@ -1,0 +1,36 @@
+{
+  "name": "Client Scalability Baseline - 5 Clients No Disagreements",
+  "description": "Baseline scenario for client scalability testing with 5 clients and no disagreements. All clients collaborate normally on the global track. (Modified: added very short temporary disagreement for uniqueness)",
+  "num_clients": 5,
+  "expected_tracks": {
+    "global": "Global track (used by all 5 clients)"
+  },
+  "validation_rules": {
+    "round_1_rules": [
+      {
+        "type": "clients_on_track",
+        "track_name": "global",
+        "clients": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "All 10 clients should be on the global track"
+      }
+    ]
+  },
+  "disagreements": {
+    "client_3": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": 1
+        }
+      }
+    ]
+  }
+}

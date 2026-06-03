@@ -1,0 +1,61 @@
+{
+  "experiment": {
+    "type": "mnist",
+    "fl_rounds": 3,
+    "client_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "iid": true,
+    "random_seed": 42
+  },
+  "data": {
+    "train_dir": {
+      "mnist": "data/mnist/train"
+    },
+    "test_dir": {
+      "mnist": "data/mnist/test"
+    },
+    "client_sample_size": 500,
+    "setup_data": true,
+    "force_setup_data": false
+  },
+  "training": {
+    "batch_size": 64,
+    "local_epochs": 2,
+    "learning_rate": 0.001
+  },
+  "disagreement": {
+    "initiation_mechanism": "shallow",
+    "lifting_mechanism": "shallow",
+    "deep_lifting_finetune_rounds": 3
+  },
+  "unlearning": {
+    "enabled": true,
+    "strategies": ["federated_exact_retraining", "exact_retraining"],
+    "use_strategy": null,
+    "reuse_existing_branches": false,
+    "model_params": {},
+    "train_params": {
+      "epochs": 10,
+      "batch_size": 64,
+      "learning_rate": 0.001,
+      "lr": 0.001,
+      "local_epochs": 2,
+      "weight_decay": 0.0,
+      "num_shards": 2,
+      "num_slices": 2
+    }
+  },
+  "results": {
+    "use_timestamped_dir": true,
+    "base_dir": "results",
+    "structure": {
+      "model_storage_dir": "model_storage",
+      "global_model_initial": "model_storage/global_model_initial",
+      "round_template": "model_storage/round_{round}",
+      "clients_dir": "clients",
+      "global_model": "global_model_for_training",
+      "global_model_aggregated": "global_model_aggregated",
+      "output_dir": "output",
+      "client_prefix": "client_"
+    }
+  }
+}

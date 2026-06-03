@@ -1,0 +1,85 @@
+{
+  "name": "Mixed Disagreement Types",
+  "description": "Scenario demonstrating all disagreement types: client 0 has inbound exclusion with client 1, client 2 has outbound exclusion with client 3, client 4 has bidirectional exclusion with client 0, and client 1 opts for full exclusion.",
+  "num_clients": 5,
+  "expected_tracks": {
+    "track_4_no0": "For client 4, excluding client 0",
+    "track_0_no4": "For client 0, excluding client 4",
+    "track_3_no2": "For client 3, excluding client 2 (due to client 2's outbound disagreement)",
+    "global": "Global track for client 2 (reference only)"
+  },
+  "validation_rules": {
+    "round_1_rules": [
+      {
+        "type": "client_excludes",
+        "client": 3,
+        "excludes": [
+          2
+        ],
+        "description": "Client 3's track should exclude client 2 (due to client 2's outbound disagreement)"
+      },
+      {
+        "type": "client_excludes",
+        "client": 4,
+        "excludes": [
+          0
+        ],
+        "description": "Client 4's track should exclude client 0"
+      },
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          4
+        ],
+        "description": "Client 0's track should exclude client 4"
+      },
+      {
+        "type": "client_fully_excluded",
+        "client": 1,
+        "description": "Client 1 should be fully excluded from all tracks"
+      }
+    ]
+  },
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "outbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "bidirectional",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_1": [
+      {
+        "type": "full",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ]
+  }
+}

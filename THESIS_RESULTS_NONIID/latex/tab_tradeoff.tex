@@ -1,0 +1,27 @@
+\begin{table}[H]
+\centering
+\caption{Utility-cost trade-off on the permanent scenarios (S1, S2, S3, S8). MNIST and Adult: mean $\pm$ std over 10 seeds (42--51).}
+\label{tab:tradeoff}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{} l l c c c c @{}}
+\toprule
+\textbf{Dataset} & \textbf{Strategy} & \textbf{Utility} & \textbf{JS div.} & \textbf{Act.\ cos.} & \textbf{Retrain frac.} \\
+\midrule
+\multirow{5}{*}{MNIST} & Exact RT & $0.986 \pm 0.001$ & $0.011 \pm 0.001$ & $0.005 \pm 0.012$ & $0.730 \pm 0.000$ \\
+ & Fed.\ Exact RT & $0.987 \pm 0.001$ & $0.008 \pm 0.000$ & --- & --- \\
+ & SISA & $0.963 \pm 0.002$ & $0.419 \pm 0.001$ & --- & $0.294 \pm 0.000$ \\
+ & Distillation & $0.985 \pm 0.001$ & $0.007 \pm 0.000$ & $0.721 \pm 0.005$ & $0.730 \pm 0.000$ \\
+ & MF & $0.473 \pm 0.050$ & $0.321 \pm 0.024$ & $0.444 \pm 0.038$ & $0.044 \pm 0.000$ \\
+\midrule
+\multirow{5}{*}{Adult} & Exact RT & $0.843 \pm 0.008$ & $0.021 \pm 0.001$ & $0.061 \pm 0.010$ & $0.748 \pm 0.000$ \\
+ & Fed.\ Exact RT & $0.823 \pm 0.005$ & $0.027 \pm 0.002$ & --- & --- \\
+ & SISA & $0.826 \pm 0.005$ & $0.088 \pm 0.002$ & --- & $0.341 \pm 0.000$ \\
+ & Distillation & $0.834 \pm 0.008$ & $0.004 \pm 0.000$ & $0.341 \pm 0.013$ & $0.748 \pm 0.000$ \\
+ & MF & $0.824 \pm 0.008$ & $0.013 \pm 0.002$ & $0.757 \pm 0.011$ & $0.059 \pm 0.000$ \\
+\midrule
+\bottomrule
+\end{tabular}
+\\[2pt]
+{\footnotesize ``---'' = metric not exposed by the strategy. Wall-clock time omitted (hardware-dependent across re-runs).}
+\end{table}

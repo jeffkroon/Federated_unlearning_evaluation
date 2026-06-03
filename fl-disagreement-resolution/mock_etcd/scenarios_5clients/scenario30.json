@@ -1,0 +1,138 @@
+{
+  "name": "Client and Disagreement Scalability - 5 clients, each excluding next 3 clients",
+  "description": "Tests scalability with 5 clients where each client excludes the next 3 clients in sequence (with wraparound). This creates a complex disagreement pattern with moderate client counts, testing both client and disagreement scalability.",
+  "num_clients": 5,
+  "expected_tracks": {},
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_1": [
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_3": [
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ]
+  }
+}

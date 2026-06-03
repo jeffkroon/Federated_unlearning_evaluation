@@ -1,0 +1,25 @@
+{
+  "name": "Empty Scenario - No Disagreements",
+  "description": "A baseline scenario with no disagreements between clients. Tests that the system correctly assigns all clients to the global track in the absence of any disagreements.",
+  "num_clients": 5,
+  "expected_tracks": {
+    "global": "Global track (used by all clients)"
+  },
+  "validation_rules": {
+    "round_1_rules": [
+      {
+        "type": "clients_on_track",
+        "track_name": "global",
+        "clients": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "All clients should be on the global track"
+      }
+    ]
+  },
+  "disagreements": {}
+}

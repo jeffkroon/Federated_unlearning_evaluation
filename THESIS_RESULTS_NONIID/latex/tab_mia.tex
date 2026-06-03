@@ -1,0 +1,25 @@
+\begin{table}[H]
+\centering
+\caption{Membership inference attack, permanent scenarios (S1, S2, S3, S8). MIA $\approx 0.5$ is ideal. MNIST and Adult: mean $\pm$ std over 10 seeds (42--51).}
+\label{tab:mia}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{} l l c c @{}}
+\toprule
+\textbf{Dataset} & \textbf{Strategy} & \textbf{MIA acc.} & \textbf{MIA impr.} \\
+\midrule
+\multirow{5}{*}{MNIST} & Exact RT & $0.526 \pm 0.004$ & $-0.009 \pm 0.005$ \\
+ & Fed.\ Exact RT & $0.530 \pm 0.002$ & $-0.006 \pm 0.002$ \\
+ & SISA & $0.542 \pm 0.004$ & $-0.024 \pm 0.004$ \\
+ & Distillation & $0.521 \pm 0.004$ & $-0.004 \pm 0.004$ \\
+ & MF & $0.524 \pm 0.008$ & $-0.006 \pm 0.007$ \\
+\midrule
+\multirow{5}{*}{Adult} & Exact RT & $0.551 \pm 0.012$ & $0.018 \pm 0.012$ \\
+ & Fed.\ Exact RT & $0.594 \pm 0.008$ & $-0.018 \pm 0.006$ \\
+ & SISA & $0.573 \pm 0.010$ & $-0.008 \pm 0.009$ \\
+ & Distillation & $0.566 \pm 0.011$ & $0.001 \pm 0.009$ \\
+ & MF & $0.555 \pm 0.010$ & $0.010 \pm 0.015$ \\
+\midrule
+\bottomrule
+\end{tabular}
+\end{table}

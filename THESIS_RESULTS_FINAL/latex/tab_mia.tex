@@ -1,0 +1,30 @@
+\begin{table}[H]
+\centering
+\caption{Membership inference attack, permanent scenarios (S1, S2, S3, S8). MIA $\approx 0.5$ is ideal. MNIST and Adult: mean $\pm$ std over 10 seeds (42--51). CIFAR-10: single seed (42), no std.}
+\label{tab:mia}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{} l l c c @{}}
+\toprule
+\textbf{Dataset} & \textbf{Strategy} & \textbf{MIA acc.} & \textbf{MIA impr.} \\
+\midrule
+\multirow{5}{*}{MNIST} & Exact RT & $0.503 \pm 0.002$ & $-0.004 \pm 0.003$ \\
+ & Fed.\ Exact RT & $0.498 \pm 0.001$ & $0.000 \pm 0.002$ \\
+ & SISA & $0.503 \pm 0.002$ & $-0.004 \pm 0.003$ \\
+ & Distillation & $0.500 \pm 0.001$ & $-0.001 \pm 0.002$ \\
+ & MF & $0.499 \pm 0.002$ & $-0.000 \pm 0.003$ \\
+\midrule
+\multirow{5}{*}{Adult} & Exact RT & $0.500 \pm 0.010$ & $0.007 \pm 0.007$ \\
+ & Fed.\ Exact RT & $0.505 \pm 0.009$ & $-0.002 \pm 0.011$ \\
+ & SISA & $0.501 \pm 0.007$ & $-0.001 \pm 0.012$ \\
+ & Distillation & $0.502 \pm 0.013$ & $0.005 \pm 0.007$ \\
+ & MF & $0.493 \pm 0.008$ & $0.010 \pm 0.009$ \\
+\midrule
+\multirow{5}{*}{CIFAR-10} & Exact RT & $0.503$ & $0.028$ \\
+ & Fed.\ Exact RT & $0.503$ & $0.032$ \\
+ & SISA & $0.498$ & $0.038$ \\
+ & Distillation & $0.505$ & $0.032$ \\
+ & MF & $0.500$ & $0.034$ \\
+\bottomrule
+\end{tabular}
+\end{table}

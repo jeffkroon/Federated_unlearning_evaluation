@@ -1,0 +1,13 @@
+dataset,metric,mean,std,n_seeds
+mnist,accuracy,0.9928,0.0002,10
+mnist,f1,0.9928,0.0002,10
+mnist,precision,0.9928,0.0002,10
+mnist,recall,0.9928,0.0002,10
+adult,accuracy,0.8120,0.0100,10
+adult,f1,0.8214,0.0091,10
+adult,precision,0.8480,0.0076,10
+adult,recall,0.8120,0.0100,10
+cifar10,accuracy,0.7804,0.0000,1
+cifar10,f1,0.7803,0.0000,1
+cifar10,precision,0.7823,0.0000,1
+cifar10,recall,0.7804,0.0000,1

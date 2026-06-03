@@ -1,0 +1,25 @@
+\begin{table}[H]
+\centering
+\caption{Forgetting-quality metrics, permanent scenarios (S1, S2, S3, S8). MNIST and Adult: mean $\pm$ std over 10 seeds (42--51).}
+\label{tab:forgetting}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{} l l c c c @{}}
+\toprule
+\textbf{Dataset} & \textbf{Strategy} & \textbf{Unl.\ score} & \textbf{Confidence} & \textbf{Entropy} \\
+\midrule
+\multirow{5}{*}{MNIST} & Exact RT & $0.012 \pm 0.001$ & $0.982 \pm 0.001$ & $0.057 \pm 0.002$ \\
+ & Fed.\ Exact RT & $0.011 \pm 0.001$ & $0.995 \pm 0.000$ & $0.014 \pm 0.001$ \\
+ & SISA & $0.040 \pm 0.003$ & $0.206 \pm 0.001$ & $2.248 \pm 0.001$ \\
+ & Distillation & $0.011 \pm 0.001$ & $0.994 \pm 0.000$ & $0.016 \pm 0.001$ \\
+ & MF & $0.525 \pm 0.043$ & $0.591 \pm 0.042$ & $1.169 \pm 0.119$ \\
+\midrule
+\multirow{5}{*}{Adult} & Exact RT & $0.040 \pm 0.007$ & $0.854 \pm 0.002$ & $0.316 \pm 0.003$ \\
+ & Fed.\ Exact RT & $0.040 \pm 0.004$ & $0.930 \pm 0.001$ & $0.165 \pm 0.003$ \\
+ & SISA & $0.020 \pm 0.006$ & $0.633 \pm 0.002$ & $0.644 \pm 0.001$ \\
+ & Distillation & $0.002 \pm 0.004$ & $0.892 \pm 0.005$ & $0.225 \pm 0.009$ \\
+ & MF & $-0.002 \pm 0.009$ & $0.893 \pm 0.004$ & $0.239 \pm 0.007$ \\
+\midrule
+\bottomrule
+\end{tabular}
+\end{table}

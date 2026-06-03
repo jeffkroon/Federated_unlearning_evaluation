@@ -1,0 +1,45 @@
+{
+  "name": "Simple Inbound Exclusion",
+  "description": "Basic scenario with one client having a single inbound exclusion. Client 0 excludes client 1 from round 1 onwards indefinitely.",
+  "num_clients": 5,
+  "expected_tracks": {
+    "track_0_no1": "For client 0, excluding client 1",
+    "global": "Global track (for clients 1, 2, 3, 4 without specific disagreements)"
+  },
+  "validation_rules": {
+    "round_1_rules": [
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          1
+        ],
+        "description": "Client 0's track should exclude client 1"
+      },
+      {
+        "type": "clients_on_track",
+        "track_name": "global",
+        "clients": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "Clients 1, 2, 3, 4 should be on the global track"
+      }
+    ]
+  },
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ]
+  }
+}

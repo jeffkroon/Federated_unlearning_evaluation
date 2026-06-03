@@ -1,0 +1,136 @@
+{
+  "name": "Complex Permanent Disagreements",
+  "description": "A complex scenario with multiple overlapping disagreements that remain active indefinitely. Each client has different exclusion patterns creating a complex track assignment scenario.",
+  "num_clients": 5,
+  "expected_tracks": {
+    "track_0_no1_no2": "For client 0, excluding clients 1 and 2",
+    "track_1_no3_no4": "For client 1, excluding clients 3 and 4",
+    "track_2_no0": "For client 2, excluding client 0",
+    "track_3_no0": "For client 3, excluding client 0",
+    "track_4_no2": "For client 4, excluding client 2",
+    "track_0_no1": "For client 0, excluding client 1",
+    "global": "Global track (reference only)"
+  },
+  "validation_rules": {
+    "round_1_rules": [
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          1,
+          2
+        ],
+        "description": "Client 0's track should exclude clients 1 and 2"
+      },
+      {
+        "type": "client_excludes",
+        "client": 1,
+        "excludes": [
+          3,
+          4
+        ],
+        "description": "Client 1's track should exclude clients 3 and 4"
+      },
+      {
+        "type": "client_excludes",
+        "client": 2,
+        "excludes": [
+          0
+        ],
+        "description": "Client 2's track should exclude client 0"
+      },
+      {
+        "type": "client_excludes",
+        "client": 3,
+        "excludes": [
+          0
+        ],
+        "description": "Client 3's track should exclude client 0"
+      },
+      {
+        "type": "client_excludes",
+        "client": 4,
+        "excludes": [
+          2
+        ],
+        "description": "Client 4's track should exclude client 2"
+      },
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          1
+        ],
+        "description": "Client 0's track should exclude client 1"
+      }
+    ]
+  },
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_1": [
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_3": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ]
+  }
+}

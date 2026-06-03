@@ -1,0 +1,98 @@
+{
+  "experiment": {
+    "type": "mnist",
+    "fl_rounds": 10,
+    "client_ids": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "iid": false,
+    "random_seed": 42
+  },
+  "data": {
+    "train_dir": {
+      "n_cmapss": "data/n-cmapss/train",
+      "mnist": "data/mnist/train",
+      "cifar10": "data/cifar10/train",
+      "tabular": "data/tabular/train",
+      "adult": "data/adult/train",
+      "qa": "data/qa/train"
+    },
+    "test_dir": {
+      "n_cmapss": "data/n-cmapss/test",
+      "mnist": "data/mnist/test",
+      "cifar10": "data/cifar10/test",
+      "tabular": "data/tabular/test",
+      "adult": "data/adult/test",
+      "qa": "data/qa/test"
+    },
+    "test_units": [
+      11,
+      14,
+      15
+    ],
+    "client_sample_size": 12000,
+    "test_sample_size": 10000,
+    "setup_data": true,
+    "force_setup_data": false
+  },
+  "training": {
+    "batch_size": 64,
+    "local_epochs": 5,
+    "learning_rate": 0.001
+  },
+  "disagreement": {
+    "initiation_mechanism": "shallow",
+    "lifting_mechanism": "shallow",
+    "deep_lifting_finetune_rounds": 3
+  },
+  "unlearning": {
+    "enabled": true,
+    "strategies": [
+      "mf",
+      "exact_retraining",
+      "federated_exact_retraining",
+      "sisa",
+      "distillation"
+    ],
+    "use_strategy": null,
+    "reuse_existing_branches": false,
+    "model_params": {
+      "model_name": "bert-base-uncased",
+      "num_answers": 1000,
+      "input_dim": 105,
+      "output_dim": 2
+    },
+    "train_params": {
+      "epochs": 10,
+      "batch_size": 64,
+      "lr": 0.001,
+      "weight_decay": 0.001,
+      "use_federaser": true,
+      "temperature": 5.0,
+      "alpha": 0.7,
+      "checkpoint_dir": "results/sisa_checkpoints_mnist_full",
+      "num_shards": 2,
+      "num_slices": 2,
+      "client_aware_sharding": true
+    }
+  },
+  "results": {
+    "use_timestamped_dir": true,
+    "base_dir": "results/full_data",
+    "structure": {
+      "model_storage_dir": "model_storage",
+      "global_model_initial": "model_storage/global_model_initial",
+      "round_template": "model_storage/round_{round}",
+      "clients_dir": "clients",
+      "global_model": "global_model_for_training",
+      "global_model_aggregated": "global_model_aggregated",
+      "output_dir": "output",
+      "client_prefix": "client_"
+    },
+    "verbose_plots": false
+  }
+}

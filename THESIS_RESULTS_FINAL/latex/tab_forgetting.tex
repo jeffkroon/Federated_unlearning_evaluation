@@ -1,0 +1,30 @@
+\begin{table}[H]
+\centering
+\caption{Forgetting-quality metrics, permanent scenarios (S1, S2, S3, S8). MNIST and Adult: mean $\pm$ std over 10 seeds (42--51). CIFAR-10: single seed (42), no std.}
+\label{tab:forgetting}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{} l l c c c @{}}
+\toprule
+\textbf{Dataset} & \textbf{Strategy} & \textbf{Unl.\ score} & \textbf{Confidence} & \textbf{Entropy} \\
+\midrule
+\multirow{5}{*}{MNIST} & Exact RT & $0.012 \pm 0.001$ & $0.986 \pm 0.001$ & $0.045 \pm 0.002$ \\
+ & Fed.\ Exact RT & $0.006 \pm 0.000$ & $0.997 \pm 0.000$ & $0.007 \pm 0.000$ \\
+ & SISA & $0.013 \pm 0.001$ & $0.220 \pm 0.000$ & $2.239 \pm 0.000$ \\
+ & Distillation & $0.010 \pm 0.001$ & $0.996 \pm 0.000$ & $0.011 \pm 0.000$ \\
+ & MF & $0.550 \pm 0.071$ & $0.554 \pm 0.068$ & $1.268 \pm 0.193$ \\
+\midrule
+\multirow{5}{*}{Adult} & Exact RT & $-0.017 \pm 0.001$ & $0.856 \pm 0.002$ & $0.312 \pm 0.003$ \\
+ & Fed.\ Exact RT & $-0.012 \pm 0.002$ & $0.880 \pm 0.001$ & $0.261 \pm 0.003$ \\
+ & SISA & $-0.015 \pm 0.001$ & $0.659 \pm 0.001$ & $0.630 \pm 0.000$ \\
+ & Distillation & $0.013 \pm 0.003$ & $0.862 \pm 0.001$ & $0.296 \pm 0.002$ \\
+ & MF & $0.062 \pm 0.008$ & $0.864 \pm 0.004$ & $0.311 \pm 0.007$ \\
+\midrule
+\multirow{5}{*}{CIFAR-10} & Exact RT & $0.128$ & $0.718$ & $0.816$ \\
+ & Fed.\ Exact RT & $0.084$ & $0.855$ & $0.398$ \\
+ & SISA & $0.222$ & $0.155$ & $2.282$ \\
+ & Distillation & $0.140$ & $0.824$ & $0.491$ \\
+ & MF & $0.748$ & $0.959$ & $0.182$ \\
+\bottomrule
+\end{tabular}
+\end{table}

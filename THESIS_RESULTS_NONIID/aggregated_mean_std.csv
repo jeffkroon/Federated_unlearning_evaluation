@@ -1,0 +1,11 @@
+dataset,strategy,n_seeds,utility_accuracy_test_mean,utility_accuracy_test_std,unlearning_score_mean,unlearning_score_std,forget_confidence_mean_unlearned_mean,forget_confidence_mean_unlearned_std,forget_entropy_mean_unlearned_mean,forget_entropy_mean_unlearned_std,mia_accuracy_unlearned_mean,mia_accuracy_unlearned_std,mia_improvement_mean,mia_improvement_std,js_divergence_mean_mean,js_divergence_mean_std,activation_cosine_similarity_mean,activation_cosine_similarity_std,retrain_fraction_mean,retrain_fraction_std
+mnist,exact_retraining,10,0.9857,0.0008,0.0122,0.0010,0.9818,0.0005,0.0566,0.0016,0.5262,0.0044,-0.0085,0.0052,0.0110,0.0005,0.0047,0.0117,0.7299,0.0000
+mnist,federated_exact_retraining,10,0.9874,0.0005,0.0112,0.0006,0.9945,0.0003,0.0141,0.0007,0.5301,0.0019,-0.0056,0.0021,0.0079,0.0003,,,,
+mnist,sisa,10,0.9634,0.0019,0.0401,0.0033,0.2058,0.0010,2.2480,0.0007,0.5419,0.0038,-0.0243,0.0039,0.4189,0.0009,,,0.2936,0.0000
+mnist,distillation,10,0.9850,0.0005,0.0112,0.0007,0.9939,0.0003,0.0156,0.0008,0.5210,0.0040,-0.0035,0.0037,0.0073,0.0004,0.7210,0.0046,0.7299,0.0000
+mnist,mf,10,0.4734,0.0500,0.5253,0.0428,0.5910,0.0422,1.1693,0.1186,0.5244,0.0084,-0.0061,0.0073,0.3206,0.0237,0.4441,0.0376,0.0440,0.0000
+adult,exact_retraining,10,0.8426,0.0080,0.0399,0.0074,0.8543,0.0018,0.3158,0.0032,0.5514,0.0117,0.0175,0.0123,0.0213,0.0010,0.0610,0.0100,0.7484,0.0000
+adult,federated_exact_retraining,10,0.8228,0.0053,0.0403,0.0043,0.9301,0.0014,0.1653,0.0029,0.5940,0.0084,-0.0176,0.0064,0.0271,0.0022,,,,
+adult,sisa,10,0.8260,0.0053,0.0197,0.0060,0.6330,0.0017,0.6438,0.0009,0.5732,0.0099,-0.0084,0.0089,0.0883,0.0019,,,0.3414,0.0000
+adult,distillation,10,0.8339,0.0080,0.0024,0.0044,0.8923,0.0048,0.2252,0.0085,0.5659,0.0110,0.0006,0.0093,0.0044,0.0002,0.3413,0.0127,0.7484,0.0000
+adult,mf,10,0.8238,0.0080,-0.0024,0.0086,0.8928,0.0041,0.2392,0.0073,0.5546,0.0099,0.0101,0.0146,0.0126,0.0016,0.7571,0.0106,0.0593,0.0000

@@ -1,0 +1,172 @@
+{
+  "name": "Deep Rewind and Incremental Finetune Demonstration",
+  "description": "Scenario designed to demonstrate deep rewind and deep incremental finetune features. Client 2 performs a full exclusion from rounds 1-7, client 1 performs a permanent inbound exclusion of client 0 from round 3, and client 4 performs a permanent outbound exclusion of client 0 from round 1, creating complex multi-track dynamics and allowing the system to showcase rewind capabilities and incremental finetuning.",
+  "num_clients": 5,
+  "expected_tracks": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "global": "Global track for clients 0, 1, 3, 4 (rounds 1-2, client 2 fully excluded)"
+  },
+  "expected_tracks_round_3": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "track_1_no0": "For client 1, excluding client 0 (inbound exclusion)",
+    "global": "Global track for clients 0, 3, 4 (client 2 fully excluded)"
+  },
+  "expected_tracks_round_4": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "track_1_no0": "For client 1, excluding client 0 (inbound exclusion)",
+    "global": "Global track for clients 0, 3, 4 (client 2 fully excluded)"
+  },
+  "expected_tracks_round_5": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "track_1_no0": "For client 1, excluding client 0 (inbound exclusion)",
+    "global": "Global track for clients 0, 3, 4 (client 2 fully excluded)"
+  },
+  "expected_tracks_round_6": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "track_1_no0": "For client 1, excluding client 0 (inbound exclusion)",
+    "global": "Global track for clients 0, 3, 4 (client 2 fully excluded)"
+  },
+  "expected_tracks_round_7": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "track_1_no0": "For client 1, excluding client 0 (inbound exclusion)",
+    "global": "Global track for clients 0, 3, 4 (client 2 fully excluded)"
+  },
+  "expected_tracks_round_8": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "track_1_no0": "For client 1, excluding client 0 (permanent inbound exclusion)",
+    "global": "Global track for clients 0, 2, 3, 4 (client 2 rejoins after full exclusion)"
+  },
+  "expected_tracks_round_9": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "track_1_no0": "For client 1, excluding client 0 (permanent inbound exclusion)",
+    "global": "Global track for clients 0, 2, 3, 4 (client 2 rejoins after full exclusion)"
+  },
+  "expected_tracks_round_10": {
+    "track_0_no4": "For client 0, excluding client 4 (due to client 4's outbound exclusion)",
+    "track_1_no0": "For client 1, excluding client 0 (permanent inbound exclusion)",
+    "global": "Global track for clients 0, 2, 3, 4 (client 2 rejoins after full exclusion)"
+  },
+  "validation_rules": {
+    "round_1_rules": [
+      {
+        "type": "client_fully_excluded",
+        "client": 2,
+        "description": "Client 2 should be fully excluded from all tracks"
+      },
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          4
+        ],
+        "description": "Client 0's track should exclude client 4 (due to client 4's outbound exclusion)"
+      },
+      {
+        "type": "clients_on_track",
+        "track_name": "global",
+        "clients": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "description": "Clients 0, 1, 3, 4 should be on the global track"
+      }
+    ],
+    "round_3_rules": [
+      {
+        "type": "client_fully_excluded",
+        "client": 2,
+        "description": "Client 2 should still be fully excluded from all tracks"
+      },
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          4
+        ],
+        "description": "Client 0's track should exclude client 4 (due to client 4's outbound exclusion)"
+      },
+      {
+        "type": "client_excludes",
+        "client": 1,
+        "excludes": [
+          0
+        ],
+        "description": "Client 1's track should exclude client 0 (inbound exclusion)"
+      },
+      {
+        "type": "clients_on_track",
+        "track_name": "global",
+        "clients": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "Clients 0, 3, 4 should be on the global track"
+      }
+    ],
+    "round_8_rules": [
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          4
+        ],
+        "description": "Client 0's track should still exclude client 4 (due to client 4's outbound exclusion)"
+      },
+      {
+        "type": "client_excludes",
+        "client": 1,
+        "excludes": [
+          0
+        ],
+        "description": "Client 1's track should still exclude client 0 (permanent inbound exclusion)"
+      },
+      {
+        "type": "clients_on_track",
+        "track_name": "global",
+        "clients": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "description": "Clients 0, 2, 3, 4 should be on the global track (client 2 rejoins)"
+      }
+    ]
+  },
+  "disagreements": {
+    "client_1": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 3,
+          "end": null
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "full",
+        "active_rounds": {
+          "start": 1,
+          "end": 7
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "outbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "Client and Disagreement Scalability - 15 Clients Full Ring",
+  "description": "Client and disagreement scalability test with 5 clients forming a complete ring of disagreements. Each client excludes exactly one other client (the next in sequence).",
+  "num_clients": 5,
+  "expected_tracks": {},
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_1": [
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_3": [
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ]
+  }
+}

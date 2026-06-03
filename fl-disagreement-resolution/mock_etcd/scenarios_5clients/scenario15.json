@@ -1,0 +1,98 @@
+{
+  "name": "Disagreement Scalability - 6 Clients Ring (2 Disagreements Each)",
+  "description": "Disagreement scalability test with 6 clients where each client excludes the next 2 clients in sequence (with wraparound).",
+  "num_clients": 5,
+  "expected_tracks": {
+    "track_0_no1_no2": "For client 0, excluding clients 1 and 2",
+    "track_1_no2_no3": "For client 1, excluding clients 2 and 3",
+    "track_2_no3_no4": "For client 2, excluding clients 3 and 4",
+    "track_3_no4_no0": "For client 3, excluding clients 4 and 5",
+    "track_4_no0_no0": "For client 4, excluding clients 5 and 0",
+    "track_0_no0_no1": "For client 0, excluding clients 0 and 1",
+    "global": "Global track (reference only)"
+  },
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_1": [
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_3": [
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ]
+  }
+}

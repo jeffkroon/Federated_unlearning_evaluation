@@ -1,0 +1,181 @@
+{
+  "name": "Temporary Disagreements",
+  "description": "This scenario focuses specifically on testing how the system handles temporary disagreements, with disagreements that expire after specific rounds.",
+  "num_clients": 5,
+  "expected_tracks": {
+    "track_0_no1_no2": "For client 0, excluding clients 1 and 2",
+    "track_1_no3_no4": "For client 1, excluding clients 3 and 4",
+    "track_2_no0": "For client 2, excluding client 0",
+    "track_3_no0": "For client 3, excluding client 0",
+    "track_4_no2": "For client 4, excluding client 2",
+    "track_0_no1": "For client 0, excluding client 1",
+    "global": "Global track (reference only)"
+  },
+  "expected_tracks_round_3": {
+    "track_c0_c5_no1": "For clients 0 and 5, excluding client 1 (after client 0's exclusion of client 2 expired)",
+    "track_1_no4": "For client 1, excluding client 4 only (client 3 exclusion expired)",
+    "track_2_no0": "For client 2, excluding client 0 (unchanged)",
+    "track_3_no0": "For client 3, excluding client 0 (unchanged)",
+    "track_4_no2": "For client 4, excluding client 2 (unchanged)",
+    "global": "Global track (reference only)"
+  },
+  "expected_tracks_round_4": {
+    "track_c0_c5_no1": "For clients 0 and 5, excluding client 1 (unchanged)",
+    "track_1_no4": "For client 1, excluding client 4 only (client 3 exclusion expired)",
+    "track_2_no0": "For client 2, excluding client 0 (unchanged)",
+    "track_3_no0": "For client 3, excluding client 0 (unchanged)",
+    "track_4_no2": "For client 4, excluding client 2 (unchanged)",
+    "global": "Global track (reference only)"
+  },
+  "expected_tracks_round_5": {
+    "track_c0_c5_no1": "For clients 0 and 5, excluding client 1 (unchanged)",
+    "track_3_no0": "For client 3, excluding client 0 (unchanged)",
+    "global": "Global track (now includes clients 1, 2, and 4 whose exclusions expired)"
+  },
+  "validation_rules": {
+    "round_3_rules": [
+      {
+        "type": "clients_share_track",
+        "clients": [
+          0
+        ],
+        "description": "Clients 0 and 5 should share the same track, both excluding client 1"
+      },
+      {
+        "type": "client_excludes",
+        "client": 1,
+        "excludes": [
+          4
+        ],
+        "description": "Client 1's track should exclude client 4"
+      },
+      {
+        "type": "client_includes",
+        "client": 1,
+        "includes": [
+          3
+        ],
+        "description": "Client 1's track should include client 3 (exclusion expired)"
+      },
+      {
+        "type": "client_excludes",
+        "client": 2,
+        "excludes": [
+          0
+        ],
+        "description": "Client 2's track should exclude client 0"
+      },
+      {
+        "type": "client_excludes",
+        "client": 3,
+        "excludes": [
+          0
+        ],
+        "description": "Client 3's track should exclude client 0"
+      },
+      {
+        "type": "client_excludes",
+        "client": 4,
+        "excludes": [
+          2
+        ],
+        "description": "Client 4's track should exclude client 2"
+      }
+    ],
+    "round_5_rules": [
+      {
+        "type": "clients_on_track",
+        "track_name": "global",
+        "clients": [
+          1,
+          2,
+          4
+        ],
+        "description": "Clients 1, 2, and 4 should be on the global track (all exclusions expired)"
+      },
+      {
+        "type": "clients_share_track",
+        "clients": [
+          0
+        ],
+        "description": "Clients 0 and 5 should share the same track excluding client 1"
+      },
+      {
+        "type": "client_excludes",
+        "client": 3,
+        "excludes": [
+          0
+        ],
+        "description": "Client 3's track should still exclude client 0"
+      }
+    ]
+  },
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": 2
+        }
+      }
+    ],
+    "client_1": [
+      {
+        "type": "inbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": 2
+        }
+      },
+      {
+        "type": "inbound",
+        "target": "client_4",
+        "active_rounds": {
+          "start": 1,
+          "end": 4
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": 4
+        }
+      }
+    ],
+    "client_3": [
+      {
+        "type": "inbound",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "inbound",
+        "target": "client_2",
+        "active_rounds": {
+          "start": 1,
+          "end": 4
+        }
+      }
+    ]
+  }
+}

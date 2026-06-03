@@ -1,0 +1,107 @@
+{
+  "name": "Mixed Disagreements with Temporality",
+  "description": "Scenario demonstrating mixed disagreement types with temporal elements: client 0 has permanent inbound exclusion with client 1, client 2 has temporary outbound exclusion with client 3 (rounds 1-2), client 4 has permanent bidirectional exclusion with client 0, and client 1 opts for temporary full exclusion (rounds 1-3).",
+  "num_clients": 5,
+  "expected_tracks": {
+    "track_4_no0": "For client 4, excluding client 0",
+    "track_0_no4": "For client 0, excluding client 4",
+    "track_3_no2": "For client 3, excluding client 2 (due to client 2's outbound disagreement)",
+    "global": "Global track for client 2 (reference only)"
+  },
+  "expected_tracks_round_3": {
+    "track_4_no0": "For client 4, excluding client 0",
+    "track_0_no4": "For client 0, excluding client 4",
+    "global": "Global track (clients 2 and 3 join after outbound exclusion expires)"
+  },
+  "expected_tracks_round_4": {
+    "track_0_no1": "For client 0, excluding client 1",
+    "track_4_no0": "For client 4, excluding client 0",
+    "track_0_no4": "For client 0, excluding client 4",
+    "global": "Global track (clients 1, 2, 3 after full exclusion expires)"
+  },
+  "expected_tracks_round_5": {
+    "track_0_no1": "For client 0, excluding client 1",
+    "track_4_no0": "For client 4, excluding client 0",
+    "track_0_no4": "For client 0, excluding client 4",
+    "global": "Global track (clients 1, 2, 3 after full exclusion expires)"
+  },
+  "validation_rules": {
+    "round_1_rules": [
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          1
+        ],
+        "description": "Client 0's track should exclude client 1"
+      },
+      {
+        "type": "client_fully_excluded",
+        "client": 1,
+        "description": "Client 1 should be fully excluded from all tracks"
+      }
+    ],
+    "round_4_rules": [
+      {
+        "type": "client_excludes",
+        "client": 0,
+        "excludes": [
+          1
+        ],
+        "description": "Client 0's track should still exclude client 1"
+      },
+      {
+        "type": "clients_on_track",
+        "track_name": "global",
+        "clients": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "description": "Clients 1, 2, 3, 6, 7, 8, 9 should be on global track after temporal disagreements expire"
+      }
+    ]
+  },
+  "disagreements": {
+    "client_0": [
+      {
+        "type": "inbound",
+        "target": "client_1",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_2": [
+      {
+        "type": "outbound",
+        "target": "client_3",
+        "active_rounds": {
+          "start": 1,
+          "end": 2
+        }
+      }
+    ],
+    "client_4": [
+      {
+        "type": "bidirectional",
+        "target": "client_0",
+        "active_rounds": {
+          "start": 1,
+          "end": null
+        }
+      }
+    ],
+    "client_1": [
+      {
+        "type": "full",
+        "active_rounds": {
+          "start": 1,
+          "end": 3
+        }
+      }
+    ]
+  }
+}

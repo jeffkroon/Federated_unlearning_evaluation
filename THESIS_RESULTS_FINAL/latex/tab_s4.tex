@@ -1,0 +1,30 @@
+\begin{table}[H]
+\centering
+\caption{Scenario S4 (temporary exclusion, evaluated at round~3, reported separately from the permanent scenarios). MNIST and Adult: mean $\pm$ std over 10 seeds (42--51). CIFAR-10: single seed (42), no std.}
+\label{tab:s4}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{} l l c c c c @{}}
+\toprule
+\textbf{Dataset} & \textbf{Strategy} & \textbf{Utility} & \textbf{Unl.\ score} & \textbf{MIA acc.} & \textbf{JS div.} \\
+\midrule
+\multirow{5}{*}{MNIST} & Exact RT & $0.988 \pm 0.002$ & $0.007 \pm 0.002$ & $0.503 \pm 0.005$ & $0.006 \pm 0.001$ \\
+ & Fed.\ Exact RT & $0.991 \pm 0.000$ & $0.004 \pm 0.001$ & $0.502 \pm 0.003$ & $0.003 \pm 0.000$ \\
+ & SISA & $0.988 \pm 0.001$ & $0.008 \pm 0.001$ & $0.504 \pm 0.003$ & $0.397 \pm 0.000$ \\
+ & Distillation & $0.987 \pm 0.001$ & $0.008 \pm 0.000$ & $0.503 \pm 0.005$ & $0.004 \pm 0.000$ \\
+ & MF & $0.315 \pm 0.076$ & $0.682 \pm 0.080$ & $0.501 \pm 0.004$ & $0.403 \pm 0.046$ \\
+\midrule
+\multirow{5}{*}{Adult} & Exact RT & $0.849 \pm 0.010$ & $-0.032 \pm 0.005$ & $0.499 \pm 0.021$ & $0.015 \pm 0.003$ \\
+ & Fed.\ Exact RT & $0.845 \pm 0.021$ & $-0.032 \pm 0.006$ & $0.496 \pm 0.025$ & $0.015 \pm 0.002$ \\
+ & SISA & $0.855 \pm 0.017$ & $-0.032 \pm 0.005$ & $0.486 \pm 0.028$ & $0.051 \pm 0.001$ \\
+ & Distillation & $0.809 \pm 0.018$ & $0.004 \pm 0.006$ & $0.512 \pm 0.024$ & $0.004 \pm 0.001$ \\
+ & MF & $0.825 \pm 0.017$ & $0.004 \pm 0.010$ & $0.507 \pm 0.023$ & $0.005 \pm 0.002$ \\
+\midrule
+\multirow{5}{*}{CIFAR-10} & Exact RT & $0.715$ & $-0.211$ & $0.496$ & $0.156$ \\
+ & Fed.\ Exact RT & $0.461$ & $0.030$ & $0.501$ & $0.032$ \\
+ & SISA & $0.616$ & $-0.123$ & $0.489$ & $0.157$ \\
+ & Distillation & $0.452$ & $0.039$ & $0.497$ & $0.015$ \\
+ & MF & $0.100$ & $0.388$ & $0.505$ & $0.378$ \\
+\bottomrule
+\end{tabular}
+\end{table}
